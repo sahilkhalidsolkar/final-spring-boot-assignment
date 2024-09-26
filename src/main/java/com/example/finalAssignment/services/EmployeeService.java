@@ -47,7 +47,7 @@ public class EmployeeService {
 
     public EmployWeatherDto getEmployeeWithWeather(Integer id){
         System.out.println(id);
-        Employee employee = employeeRepository.findById(id).orElseThrow(()->new RuntimeException("the employee does not exists"));
+        Employee employee = employeeRepository.findById(id).orElseThrow(()->new GenericException("the employee does not exists"));
         Weather[] weather = weatherClient.getWeatherOfEmployee(employee.getLocation());
         if (weather.length == 0) throw  new GenericException("PLease enter valid location");
 
