@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionhandler {
     @ExceptionHandler(GenericException.class)
     public ResponseEntity<?> handleGenericException(GenericException ex){
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        ErrorObj errorObj = new ErrorObj(ex.getMessage(), ex.getStatusCode());
+        return new ResponseEntity<>(errorObj, HttpStatus.BAD_REQUEST);
     }
 }
