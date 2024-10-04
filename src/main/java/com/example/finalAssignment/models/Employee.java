@@ -14,6 +14,7 @@ public class Employee {
     private Integer Id;
     private String name;
     private String Email;
+    private Integer salary;
     private String Phone;
     private String Location;
     private String photoFile;

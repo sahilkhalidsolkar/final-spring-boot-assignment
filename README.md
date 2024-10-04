@@ -14,3 +14,5 @@ Develop a Spring Boot application that manages employee records and integrates e
 3. External API Interaction:
     - Introduce HttpClient or FeignClient to interact with an external weather API. Call the API synchronously to fetch and display the current weather for the employee’s location.
     - Use JSON mapping to deserialize the weather data.
+4. Scheduled emails for Salary:
+   - It sends emails notification at the end of every month about the salary credited to the employee. 

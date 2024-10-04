@@ -21,6 +21,7 @@ public class EmployeeController {
             @RequestParam("email") String email,
             @RequestParam("phone") String phone,
             @RequestParam("location") String location,
+            @RequestParam("salary") Integer salary,
             @RequestParam("file") MultipartFile file
     ) {
 
@@ -29,6 +30,7 @@ public class EmployeeController {
         employee.setEmail(email);
         employee.setPhone(phone);
         employee.setLocation(location);
+        employee.setSalary(salary);
         System.out.println(employee);
         return employeeService.addEmployee(employee, file);
 
