@@ -90,7 +90,7 @@ public class EmployeeService {
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);) {
             List<Employee> allEmp = employeeRepository.findAll();
             allEmp.forEach((employee -> {
-                String empStr = employee.getId() + "," + employee.getName() + "," + employee.getEmail() + "," + employee.getPhone() + "," + employee.getLocation() + "," + employee.getPhotoFile() + "\n";
+                String empStr = employee.getId() + "," + employee.getName() + "," + employee.getEmail() + "," + employee.getPhone() + "," + employee.getLocation() + "," + employee.getPhotoFile() +","+employee.getSalary()+ "\n";
                 try {
                     bufferedWriter.write(empStr);
                 } catch (IOException e) {
@@ -116,6 +116,8 @@ public class EmployeeService {
                 String phone = employStr[3];
                 String location = employStr[4];
                 String photoFile = employStr[5];
+                Integer salary = Integer.parseInt(employStr[6]);
+
                 System.out.println("importing");
                 Employee emp = new Employee();
                 emp.setName(name);
@@ -123,13 +125,14 @@ public class EmployeeService {
                 emp.setPhone(phone);
                 emp.setLocation(location);
                 emp.setPhotoFile(photoFile);
+                emp.setSalary(salary);
 
                 return emp;
             }).forEach(employeeRepository::save);
 
 
         } catch (IOException e) {
-            throw new GenericException("Promblem in importing the file to db");
+            throw new GenericException("Problem in importing the file to db");
         }
 
 
